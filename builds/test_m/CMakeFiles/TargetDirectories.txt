@@ -1,0 +1,3 @@
+/Users/julianguarin2010/Code/hack/tads/llist/builds/test_m/CMakeFiles/rebuild_cache.dir
+/Users/julianguarin2010/Code/hack/tads/llist/builds/test_m/CMakeFiles/edit_cache.dir
+/Users/julianguarin2010/Code/hack/tads/llist/builds/test_m/CMakeFiles/nodetest.dir
