@@ -17,7 +17,7 @@ public:
 	bool empty();
 	size_t count();
 	void clear();
-	void insert(const T&, SingleLinkedNode<T>* nodePtr = nullptr);
+	void insert(const T&, unsigned int pos);
 	void push_front(const T&);
 	void push_back(const T&);
 	void pop_front();

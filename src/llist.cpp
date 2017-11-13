@@ -57,13 +57,15 @@ void SingleLinkedList<T>::pop_back()
 		pop_front();
 		return;
 	}
+	
 	while (pnode->getNextNode() != m_backNode)
 	{
-		pnode = pnode->getNextNode;
+		pnode = pnode->getNextNode();
 	}
 	std::swap(pnode,m_backNode);
-	delete pnode;
 	m_backNode->setNodeToLink(nullptr);
+	
+	delete pnode;
 	--m_count;
 }
 template <typename T>
@@ -74,10 +76,44 @@ void SingleLinkedList<T>::clear()
 	}
 }
 template <typename T>
+void SingleLinkedList<T>::insert(const T &data, unsigned int pos)
+{	
+	//in the front
+	if (!m_count || !pos) 
+	{
+		push_front(data);
+		return;
+	}
+
+	//in the back
+	if (pos >= m_count)
+	{
+		push_back(data);
+		return;
+	}
+	
+	//in the middle
+	auto pNode = m_frontNode;
+	for (auto index = 1; pNode && (index < pos); ++index)
+	{
+		pNode = pNode->getNextNode();
+	}
+	auto dataNode = new SingleLinkedNode<T>(data,pNode->getNextNode());
+	pNode->setNodeToLink(dataNode);
+
+}
+template <typename T>
 void SingleLinkedList<T>::push_front(const T &data)
 {
 	auto pnode = new SingleLinkedNode<T>(data);
-	pnode->setNodeToLink(m_frontNode->getNextNode());
+	if (m_frontNode)
+    {
+        pnode->setNodeToLink(m_frontNode->getNextNode());
+    }
+    else
+    {
+        m_backNode = pnode;
+    }
 	m_frontNode = pnode;
 	++m_count;
 }
@@ -85,8 +121,17 @@ template <typename T>
 void SingleLinkedList<T>::push_back(const T &data)
 {
 	auto pnode = new SingleLinkedNode<T>(data);
-	m_backNode = pnode;
+    if (m_backNode)
+    {
+        m_backNode->setNodeToLink(pnode);
+    }
+    else
+    {
+        m_frontNode = pnode;
+    }
+    m_backNode = pnode;
 	++m_count;
 }
+template class julian::SingleLinkedList<int>;
 
-}
+}	

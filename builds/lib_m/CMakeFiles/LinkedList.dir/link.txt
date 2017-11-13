@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libLinkedList.a  CMakeFiles/LinkedList.dir/llist.cpp.o CMakeFiles/LinkedList.dir/node.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libLinkedList.a

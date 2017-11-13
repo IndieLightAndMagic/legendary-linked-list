@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
 
 #Project Name and Resources 
-set(TARGET_NAME nodetest)
+set(TARGET_NAME llisttest)
 
 project(${TARGET_NAME})
 
@@ -26,7 +26,7 @@ message(STATUS "-----------------------------")
 
 #SOURCES: As this is a test for a templated class library we need to include as source code the library sources
 aux_source_directory(${CMAKE_SOURCE_DIR} SOURCE_LIST)
-set (SOURCE_LIST ${SOURCE_LIST} "${LIB_ON_TEST_SOURCE_DIR}/node.cpp")
+set (SOURCE_LIST ${SOURCE_LIST} "${LIB_ON_TEST_SOURCE_DIR}/node.cpp" "${LIB_ON_TEST_SOURCE_DIR}/llist.cpp")
 
 message(STATUS "Sources added to build target: ${TARGET_NAME}")
 foreach (x ${SOURCE_LIST})
